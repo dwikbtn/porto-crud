@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { app } from "../firebase-config";
 import {
   Grid,
   Typography,
@@ -8,7 +9,7 @@ import {
   Select,
   Button,
 } from "@mui/material";
-import "./create.css";
+import "./style.css";
 
 export default function Create() {
   const [userInput, setUserInput] = useState({
@@ -31,8 +32,8 @@ export default function Create() {
       ...userInput,
       catagory: e.target.value,
     });
-    console.log(userInput);
   }
+
   return (
     <Grid
       container
@@ -41,11 +42,7 @@ export default function Create() {
       alignItems="center"
       spacing={1}
       sx={{
-        bgcolor: "background.paper",
-        boxShadow: 1,
-        borderRadius: 1,
-        p: 2,
-        minWidth: 300,
+        bgcolor: "background.default",
       }}
     >
       <Typography variant="h3" component="h1" className="header" gutterBottom>

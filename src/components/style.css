@@ -1,0 +1,9 @@
+.header {
+  color: aquamarine;
+}
+.login {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+}
