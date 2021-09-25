@@ -4,7 +4,6 @@ import {
   createTheme,
   ThemeProvider,
 } from "@mui/material";
-import Create from "./components/create";
 import Login from "./components/login";
 function App() {
   const theme = createTheme({

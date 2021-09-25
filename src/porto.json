@@ -1,0 +1,94 @@
+{
+  "portofolios": [
+    {
+      "id": 10,
+      "header": "Next Js blog",
+      "description": "Personal blog called late me, that i build using next.js. Personally next js is fun to use. still building the backend parts",
+      "imageUrl": "images/portofolios-img/late-me-blog.png",
+      "githubUrl": "https://github.com/dwikbtn/nextjs-blog",
+      "demoUrl": "https://quirky-kowalevski-e3aa3e.netlify.app/",
+      "type": "front-end"
+    },
+    {
+      "id": 9,
+      "header": "Barber Shop Landing Page",
+      "description": "Beautiful barbershop landing page with seamless image transition when scrokking down. build with html, css, bootstrap and javascript",
+      "imageUrl": "images/portofolios-img/barber-landing.png",
+      "githubUrl": null,
+      "demoUrl": "https://boring-shannon-142d6c.netlify.app/",
+      "type": "front-end"
+    },
+    {
+      "id": 1,
+      "header": "Staycation",
+      "description": "A booking accommodation app. Build with react, bootstrap, sass—a fully interactive website and smooth user experience. back-end with express and MongoDB(wip).",
+      "imageUrl": "images/portofolios-img/staycation.png",
+      "githubUrl": "https://github.com/dwikbtn/staycation",
+      "demoUrl": "https://xenodochial-lamport-9a38db.netlify.app",
+      "type": "front-end"
+    },
+    {
+      "id": 2,
+      "header": "custom order burger",
+      "description": "a burger order app with unique features such as order and costume your own burger. created with react",
+      "imageUrl": "images/portofolios-img/burger-app.png",
+      "githubUrl": "https://github.com/dwikbtn/fast-food-generator",
+      "demoUrl": "https://xenodochial-carson-d1ee1a.netlify.app/",
+      "type": "front-end"
+    },
+    {
+      "id": 3,
+      "header": "Face Detection",
+      "description": "another react website. this app can detect any face and give it square around it. fully integreted with clarifai api",
+      "imageUrl": "images/portofolios-img/face-detection.png",
+      "githubUrl": "https://github.com/dwikbtn/face-recognizer",
+      "demoUrl": "https://quizzical-fermi-a62416.netlify.app",
+      "type": "front-end"
+    },
+    {
+      "id": 4,
+      "header": "Watch your Expense",
+      "description": "simple react app to monitor your expense. you can also filtered it each months",
+      "imageUrl": "images/portofolios-img/expense-app.png",
+      "githubUrl": "https://github.com/dwikbtn/expense-app-react",
+      "demoUrl": "https://sleepy-thompson-ee0bc5.netlify.app/",
+      "type": "front-end"
+    },
+    {
+      "id": 5,
+      "header": "Keiko.corp",
+      "description": "Fun project I do participate in Hacktober 2020, we build app for imaginative corporation",
+      "imageUrl": "images/portofolios-img/keiko.png",
+      "githubUrl": "https://github.com/dwikbtn/Keiko-Corp",
+      "demoUrl": "https://heuristic-mayer-9eb8b6.netlify.app/",
+      "type": "front-end"
+    },
+    {
+      "id": 6,
+      "header": "Company Landing Page",
+      "description": "a simple company landing page. built with only html, css, javascript",
+      "imageUrl": "images/portofolios-img/one-page-landing.png",
+      "githubUrl": "https://github.com/dwikbtn/single-page-porto",
+      "demoUrl": "https://quirky-poitras-48b2c9.netlify.app/",
+      "type": "front-end"
+    },
+    {
+      "id": 7,
+      "header": "simple javascript example",
+      "description": "simple app that you can build with javascript. see the code on my github page",
+      "imageUrl": "images/portofolios-img/simple-javascript-app.png",
+      "githubUrl": "https://github.com/dwikbtn/simple-vanilaJs-project",
+      "demoUrl": null,
+      "type": "front-end"
+    },
+    {
+      "id": 8,
+      "header": "staycation figma design",
+      "description": "design for my staycation app",
+      "imageUrl": "images/portofolios-img/staycation-mockup.png",
+      "githubUrl": "https://github.com/dwikbtn/staycation",
+      "demoUrl": null,
+      "type": "others"
+    }
+  ]
+}

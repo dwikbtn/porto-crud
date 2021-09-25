@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { app } from "../firebase-config";
+import { db } from "../firebase-config";
+import { collection, addDoc } from "firebase/firestore";
+
 import {
   Grid,
   Typography,
@@ -12,7 +14,7 @@ import {
 import "./style.css";
 
 export default function Create() {
-  const [userInput, setUserInput] = useState({
+  const [portofolio, setUserInput] = useState({
     title: "",
     description: "",
     demoUrl: "",
@@ -23,15 +25,32 @@ export default function Create() {
   function onInputChange(e) {
     const id = e.target.id;
     setUserInput({
-      ...userInput,
+      ...portofolio,
       [id]: e.target.value,
     });
   }
   function onSelectChange(e) {
     setUserInput({
-      ...userInput,
+      ...portofolio,
       catagory: e.target.value,
     });
+  }
+  async function onSubmitHandler(e) {
+    try {
+      const docRef = await addDoc(collection(db, "portofolios"), {
+        portofolio,
+      });
+      await setUserInput({
+        title: "",
+        description: "",
+        demoUrl: "",
+        imageUrl: "",
+        catagory: "",
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   }
 
   return (
@@ -53,7 +72,7 @@ export default function Create() {
         <TextField
           id="title"
           label="title"
-          value={userInput.title}
+          value={portofolio.title}
           variant="outlined"
           onChange={onInputChange}
         />
@@ -62,7 +81,7 @@ export default function Create() {
         <TextField
           id="description"
           label="description"
-          value={userInput.description}
+          value={portofolio.description}
           onChange={onInputChange}
           variant="outlined"
         />{" "}
@@ -70,7 +89,7 @@ export default function Create() {
       <Grid item>
         <TextField
           id="demoUrl"
-          value={userInput.demoUrl}
+          value={portofolio.demoUrl}
           onChange={onInputChange}
           label="Demo Url"
           variant="outlined"
@@ -81,7 +100,7 @@ export default function Create() {
           id="imageUrl"
           label="ImageUrl"
           variant="outlined"
-          value={userInput.imageUrl}
+          value={portofolio.imageUrl}
           onChange={onInputChange}
         />
       </Grid>
@@ -90,7 +109,7 @@ export default function Create() {
         <Select
           labelId="catagory"
           id="catagory"
-          value={userInput.catagory}
+          value={portofolio.catagory}
           onChange={onSelectChange}
           label="catagory"
         >
@@ -99,7 +118,9 @@ export default function Create() {
           <MenuItem value={"others"}>others</MenuItem>
         </Select>
       </Grid>
-      <Button type="primary">Submit</Button>
+      <Button type="submit" onClick={onSubmitHandler} color="primary">
+        Submit
+      </Button>
     </Grid>
   );
 }
