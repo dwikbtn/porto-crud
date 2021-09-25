@@ -6,10 +6,11 @@ import {
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";
+import Create from "./create";
 
 import "./style.css";
 
-export default function Login({ status }) {
+export default function Login() {
   const [loggedStatus, setLogged] = useState();
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
@@ -24,10 +25,8 @@ export default function Login({ status }) {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setLogged(true);
-      status(loggedStatus);
     } else {
       setLogged(false);
-      status(loggedStatus);
     }
   });
 
@@ -35,11 +34,14 @@ export default function Login({ status }) {
     <>
       <div className="login">
         {loggedStatus ? (
-          <section id="logout">
-            <button id="logout-btn" onClick={logOutHandler}>
-              log out
-            </button>
-          </section>
+          <>
+            <Create />
+            <section id="logout">
+              <button id="logout-btn" onClick={logOutHandler}>
+                log out
+              </button>
+            </section>
+          </>
         ) : (
           <section id="login">
             <button id="login-btn" onClick={loginHandler}>
