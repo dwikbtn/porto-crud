@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { db } from "../firebase-config";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "../firebase-config";
 import { collection, addDoc } from "firebase/firestore";
 
 import {
@@ -35,22 +37,26 @@ export default function Create() {
       catagory: e.target.value,
     });
   }
-  async function onSubmitHandler(e) {
-    try {
-      const docRef = await addDoc(collection(db, "portofolios"), {
-        portofolio,
-      });
-      await setUserInput({
-        title: "",
-        description: "",
-        demoUrl: "",
-        imageUrl: "",
-        catagory: "",
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
+  function onSubmitHandler(e) {
+    e.preventDefault();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        addDoc(collection(db, "portofolios"), {
+          portofolio,
+          uid: user.uid,
+        });
+        setUserInput({
+          title: "",
+          description: "",
+          demoUrl: "",
+          imageUrl: "",
+          catagory: "",
+        });
+        console.log("Document written with ID: ", user);
+      } else {
+        console.error("Error adding document: ", user);
+      }
+    });
   }
 
   return (

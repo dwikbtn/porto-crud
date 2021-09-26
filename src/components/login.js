@@ -9,6 +9,7 @@ import {
 import Create from "./create";
 
 import "./style.css";
+import ShowData from "./showData";
 
 export default function Login() {
   const [loggedStatus, setLogged] = useState();
@@ -36,6 +37,7 @@ export default function Login() {
         {loggedStatus ? (
           <>
             <Create />
+            <ShowData />
             <section id="logout">
               <button id="logout-btn" onClick={logOutHandler}>
                 log out

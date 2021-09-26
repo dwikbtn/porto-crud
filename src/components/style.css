@@ -2,8 +2,19 @@
   color: aquamarine;
 }
 .login {
+  flex-direction: column;
   display: flex;
   width: 100%;
   justify-content: center;
   justify-items: center;
+}
+
+table {
+  border-style: solid;
+}
+
+th,
+tr,
+td {
+  border-style: solid;
 }
