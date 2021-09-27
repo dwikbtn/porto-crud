@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase-config";
 
-export default function showData() {
+export default function ShowData() {
+  const [portos, setPorto] = useState();
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "portofolios"), (snapshoot) => {
+        setPorto(snapshoot.docs.map((doc) => doc.data()));
+      }),
+    []
+  );
+
+  let theadName = [];
+  let tbody = [];
+  if (portos !== undefined) {
+    for (const key in portos[0].portofolio) {
+      theadName.push(key);
+    }
+    portos.map((porto) => {
+      return tbody.push(Object.values(porto.portofolio));
+    });
+  }
+  console.log(tbody);
   return (
     <table>
-      <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
-      </tr>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-      </tr>
-      <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-      </tr>
+      <tbody>
+        <tr>
+          {theadName.map((thead) => {
+            return <th key={thead}>{thead}</th>;
+          })}
+        </tr>
+        <tr>
+          {tbody[0] !== undefined
+            ? tbody[0].map((tb) => {
+                return <td key={tb}>{tb}</td>;
+              })
+            : "loading data"}
+        </tr>
+      </tbody>
     </table>
   );
 }
